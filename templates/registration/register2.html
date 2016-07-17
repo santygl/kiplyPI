@@ -1,0 +1,33 @@
+{% block content %}
+
+{% if form.errors %}
+    <strong style="color: #e30005">La contrase&ntilde;a debe tener una longitud m&iacute;nima de 8 y ser diferente al usuario:</strong>
+{% endif %}
+
+<form method="post" action="{% url 'register' %}">
+{% csrf_token %}
+<table>
+    <tr>
+        <td>Usuario</td>
+        <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+        <td>Contrase&ntilde;a</td>
+        <td>{{ form.password1 }}</td>
+    </tr>
+    <tr>
+        <td>Contrase&ntilde;a</td>
+        <td>{{ form.password2 }}</td>
+    </tr>
+        <td>Email</td>
+        <td>{{ form.email }}</td>
+    <tr>
+
+    </tr>
+</table>
+
+<input type="submit" value="register" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{% endblock %}
