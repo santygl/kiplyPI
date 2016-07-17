@@ -17,11 +17,14 @@ from django.conf.urls import url, include
 from django.contrib.auth import views
 from django.contrib import admin
 
-from PI.views import register2
+from PI.views import register, twitter_authenticated, twitter_link, index
 
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     url(r'^login/$', views.login, name='login'),
-    url(r'^register/$', register2, name='register'),
+    url(r'^$', index, name='index'),
+    url(r'^register/$', register, name='register'),
     url(r'^logout/$', views.logout, name='django.contrib.auth.views.logout'),
+    url(r'^twitter_link/$', twitter_link, name='twitter_link'),
+    url(r'^twitter_authenticated/', twitter_authenticated, name='twitter_authenticated'),
 ]
